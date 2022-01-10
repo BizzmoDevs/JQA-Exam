@@ -3,14 +3,17 @@ package com.bizzmodevs;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant extends Building {
 
-    List<Employees> employeesList = new ArrayList<>();
-
+    List<Employee> employeesList = new ArrayList<>();
     Menu menu = new Menu();
+    String restaurantName;
 
-    private Restaurant() {
-
+    public Restaurant(String name, int rooms, int bathroom, boolean k) {
+        //This??
+        restaurantName = name;
+        roomsNumber = rooms;
+        bathroomNumber = bathroom;
+        kitchen = k;
     }
-
 }
