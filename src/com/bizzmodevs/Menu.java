@@ -1,20 +1,16 @@
 package com.bizzmodevs;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Menu {
-    HashSet<MenuItem> menuList = new HashSet();
-
-    Menu() {
-        MenuItem menuItem1 = new MenuItem("Mexicana", "Pizza z ostrym sosem", 32);
-        menuList.add(menuItem1);
-        MenuItem menuItem2 = new MenuItem("Italiana", "Pizza z salami", 28);
-        menuList.add(menuItem2);
-    }
+    Map<String,MenuItem> menuList = new HashMap<>();
 
     public void printMenu() {
-        for (MenuItem item : menuList) {
-            System.out.println(item.itemName + " '" + item.itemDescription + "' " + " with price: " + item.itemPrice + " PLN");
+        int counter = 0;
+        for (MenuItem i : menuList.values()) {
+            counter++;
+            System.out.println(counter + ". " + i.itemName + " '" + i.itemDescription + "'" + " with price: " + i.itemPrice + " PLN");
         }
     }
 
@@ -24,6 +20,7 @@ public class Menu {
 
     public void addMenuItem(String itemName, String itemDescription, int itemPrice) {
         MenuItem newItem = new MenuItem(itemName, itemDescription, itemPrice);
-        menuList.add(newItem);
+        String itemNameS = itemName;
+        menuList.put(itemName, newItem);
     }
 }
