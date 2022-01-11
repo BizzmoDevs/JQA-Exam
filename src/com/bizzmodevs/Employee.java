@@ -6,7 +6,9 @@ public class Employee {
     public int salaryPerHour;
 
     Employee(String fullName, String position, int salaryPerHour) {
-
+        this.fullName = fullName;
+        this.position = position;
+        this.salaryPerHour = salaryPerHour;
     }
 
     public String getFullName() {
