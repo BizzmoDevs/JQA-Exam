@@ -21,20 +21,19 @@ public class Main {
 
         //INIT DEFAULT EMPLOYEES
         Employee e = new Employee("Karol Odwald", "Manager", 50);
-        r1.employeesList.add(e);
+        r1.employeesList.put(e.getFullName(), e);
         Employee e2 = new Employee("Maciej Kowalski", "Chef", 20);
-        r1.employeesList.add(e2);
+        r1.employeesList.put(e2.getFullName(),e2);
         Employee e3 = new Employee();
         e3.setFullName("John Rambo");
         e3.setPosition("Killer");
         e3.setSalaryPerHour(90);
-        r1.employeesList.add(e3);
+        r1.employeesList.put(e3.getFullName(), e3);
 
         //INIT DEFAULT MENU ITEMS
-        MenuItem i = new MenuItem("Mexicana", "Pizza with Salami, Oregano and Tabasco Sauce", 28);
-        r1.menu.menuItems.put("Mexicana", i);
-        MenuItem i2 = new MenuItem("Napolitana", "Pizza with Ham, Oregano and Tomato Sauce", 25);
-        r1.menu.menuItems.put("Napolitana", i2);
+        //MenuItem i = new MenuItem("Mexicana", "Pizza with Salami, Oregano and Tabasco Sauce", 28);
+        r1.menu.addMenuItem("Mexicana", "Pizza with Salami, Oregano and Tabasco Sauce", 28);
+        r1.menu.addMenuItem("Napolitana", "Pizza with Ham, Oregano and Tomato Sauce", 25);
 
         //----------------------------TEST METHODS-----------------------------------//
         System.out.println("********************");
@@ -45,30 +44,40 @@ public class Main {
         System.out.println("EMPLOYEES:");
         r1.showEmployeesList();
         System.out.println("********************");
-        System.out.println("Changing" + r1.employeesList.get(0).getFullName() + " salary to 60... ");
-        r1.employeesList.get(0).setSalaryPerHour(60);
+
+        System.out.println("Changing " + r1.employeesList.get("Karol Odwald").getFullName() + " salary to 60... ");
+        r1.employeesList.get("Karol Odwald").setSalaryPerHour(60);
         System.out.println("********************");
-        //TODO find Employee by name and show updated salary
+        System.out.println("EMPLOYEES:");
+        r1.showEmployeesList();
+        System.out.println("********************");
+        System.out.println("Adding 'Bigos' to the Menu");
+        r1.menu.addMenuItem("Bigos", "Kiszona kapusta z chlebem", 15);
+        System.out.println("********************");
+        System.out.println("MENU:");
+        r1.showRestaurantMenu();
 
         //------------------------------TEST UI--------------------------------------//
         System.out.println("");
         System.out.println("Hello! Welcome in the Restaurant Manager Studio v1.0.");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose your option by pressing a number on the keyboard.");
-        System.out.println("0. Exit program");
-        System.out.println("1. Show the restaurant list");
-        System.out.println("2. Add new restaurant");
-        System.out.println("3. Bonus exercises");
-        mainMenuSelection = scanner.nextInt();
 
-        switch (mainMenuSelection) {
-            case 0: System.out.println("Exiting program."); break;
-            case 1: showRestaurantList(); break;
-            case 2: addNewRestaurant(); break;
-            case 3: runBonusExercises(); break;
-            default: System.out.println("Type in correct number");
+        while (mainMenuSelection != 9) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Choose your option by pressing a number on the keyboard.");
+            System.out.println("1. Show the restaurant list");
+            System.out.println("2. Add new restaurant");
+            System.out.println("3. Bonus exercises");
+            System.out.println("9. Exit program");
+            mainMenuSelection = scanner.nextInt();
+
+            switch (mainMenuSelection) {
+                case 9: System.out.println("Exiting program."); break;
+                case 1: showRestaurantList(); break;
+                case 2: addNewRestaurant(); break;
+                case 3: runBonusExercises(); break;
+                default: System.out.println("Type in correct number");
+            }
         }
-
     }
 
     private static void showRestaurantList() {

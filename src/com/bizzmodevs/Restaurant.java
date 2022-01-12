@@ -1,12 +1,10 @@
 package com.bizzmodevs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Restaurant extends Building {
 
-    List<Employee> employeesList = new ArrayList<>();
+    Map<String, Employee> employeesList = new HashMap<>();
     Menu menu = new Menu();
     String restaurantName;
     int UISelection;
@@ -23,7 +21,7 @@ public class Restaurant extends Building {
         if (employeesList.isEmpty()) {
             System.out.println("There is no employees working in this restaurant!");
         } else {
-            for ( Employee e : employeesList) {
+            for ( Employee e : employeesList.values()) {
                 employeeCounter++;
 
                 System.out.print(employeeCounter + ". ");
@@ -32,18 +30,16 @@ public class Restaurant extends Building {
         }
     }
 
-    //TODO
-    public Employee getEmployeeByName() {
+    public void getEmployeeByName() {
         System.out.println("Type in employee name");
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
-        if (employeesList.contains(s)) {
-            System.out.println("Found: " + employeesList.contains(s));
+        Employee e = employeesList.get(s);
+        if (e != null) {
+            System.out.println(e.getFullName() + " is working as " + e.getPosition());;
+        } else {
+            System.out.println("There is no such Employee");
         }
-        else {
-            System.out.println("There is no such employee named " + s);
-        }
-        return employeesList.get(0);
     }
 
     public void addEmployee() {
@@ -57,7 +53,8 @@ public class Restaurant extends Building {
         System.out.println("Type in employee salary per hour");
         salaryPerHour = scanner.nextInt();
         Employee e = new Employee(fullName, position, salaryPerHour);
-        employeesList.add(e);
+        employeesList.put(fullName,e);
+        System.out.println("New Employee was added!");
     }
 
     public void showRestaurantMenu() {

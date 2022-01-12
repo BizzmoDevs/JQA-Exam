@@ -2,8 +2,8 @@ package com.bizzmodevs;
 
 public class Employee {
 
-    public String fullName, position;
-    public int salaryPerHour;
+    private String fullName, position;
+    private int salaryPerHour;
 
     public Employee(String fullName, String position, int salaryPerHour) {
         this.fullName = fullName;
