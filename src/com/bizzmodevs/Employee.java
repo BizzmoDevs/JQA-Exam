@@ -5,11 +5,12 @@ public class Employee {
     public String fullName, position;
     public int salaryPerHour;
 
-    Employee(String fullName, String position, int salaryPerHour) {
+    public Employee(String fullName, String position, int salaryPerHour) {
         this.fullName = fullName;
         this.position = position;
         this.salaryPerHour = salaryPerHour;
     }
+    public Employee(){}
 
     public String getFullName() {
         return fullName;
@@ -31,6 +32,6 @@ public class Employee {
     }
 
     public void printEmployeeData() {
-        System.out.println(fullName + " is working as a " + position + " with salary per hour: " + salaryPerHour);
+        System.out.println(getFullName() + " is working as a " + getPosition() + " with salary per hour: " + getSalaryPerHour());
     }
 }

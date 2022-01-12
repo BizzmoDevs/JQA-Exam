@@ -9,7 +9,7 @@ public class Restaurant extends Building {
     List<Employee> employeesList = new ArrayList<>();
     Menu menu = new Menu();
     String restaurantName;
-    int UImenuSelection;
+    int UISelection;
 
     public Restaurant(String restaurantName, int roomsNumber, int bathroomNumber, boolean kitchen) {
         this.restaurantName = restaurantName;
@@ -32,21 +32,18 @@ public class Restaurant extends Building {
         }
     }
 
-    public void showBuildingStatus() {
-        showBuildingProperties();
-    }
-
+    //TODO
     public Employee getEmployeeByName() {
         System.out.println("Type in employee name");
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
         if (employeesList.contains(s)) {
-            System.out.println(employeesList.contains(s));
+            System.out.println("Found: " + employeesList.contains(s));
         }
         else {
             System.out.println("There is no such employee named " + s);
         }
-        return employeesList.get(1);
+        return employeesList.get(0);
     }
 
     public void addEmployee() {
@@ -64,7 +61,7 @@ public class Restaurant extends Building {
     }
 
     public void showRestaurantMenu() {
-        if (menu.menuList.isEmpty()) {
+        if (menu.menuItems.isEmpty()) {
             System.out.println("Restaurant menu is empty!");
         } else {
             menu.printMenu();
@@ -86,7 +83,7 @@ public class Restaurant extends Building {
     }
 
     public void UIMenu() {
-        while (UImenuSelection != 7) {
+        while (UISelection != 9) {
             System.out.println("Welcome in " + restaurantName + ".");
             System.out.println("What you want to do? Choose your option by number:");
             System.out.println("1. Show restaurant rooms");
@@ -95,19 +92,19 @@ public class Restaurant extends Building {
             System.out.println("4. Add new employee");
             System.out.println("5. Get restaurant employee by name");
             System.out.println("6. Add new menu position");
-            System.out.println("7. Exit");
+            System.out.println("7. Get menu item price by name");
+            System.out.println("9. Exit");
 
             Scanner scanner = new Scanner(System.in);
 
             try {
-                UImenuSelection = scanner.nextInt();
-            } catch (Exception e) {
-
+                UISelection = scanner.nextInt();
+            } catch (Exception e) { //
             }
 
-            switch (UImenuSelection) {
+            switch (UISelection) {
                 case 1:
-                    showBuildingStatus();
+                    showBuildingProperties();
                     break;
                 case 2:
                     showRestaurantMenu();
@@ -125,6 +122,12 @@ public class Restaurant extends Building {
                     addMenuPosition();
                     break;
                 case 7:
+                    System.out.println("Type in Menu Item Name");
+                    Scanner scanner2 = new Scanner(System.in);
+                    String s = scanner2.nextLine();
+                    menu.getPriceByName(s);
+                    break;
+                case 9:
                     break;
                 default:
                     System.out.println("Choose correct number!");
