@@ -2,10 +2,9 @@ package com.bizzmodevs;
 
 public class MenuItem {
     private String itemName, itemDescription;
-    private int itemPrice, itemPosition;
+    private int itemPrice;
 
-    public MenuItem(int itemPosition, String itemName, String itemDescription, int itemPrice) {
-        this.itemPosition = itemPosition;
+    public MenuItem(String itemName, String itemDescription, int itemPrice) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.itemPrice = itemPrice;
@@ -35,7 +34,4 @@ public class MenuItem {
         return itemName;
     }
 
-    public int getItemPosition() {
-        return itemPosition;
-    }
 }

@@ -5,12 +5,11 @@ public class Employee {
     private String fullName, position;
     private int salaryPerHour;
 
-    public Employee(String fullName, String position, int salaryPerHour) {
-        this.fullName = fullName;
+    public Employee(String name, String surname, String position, int salaryPerHour) {
+        this.fullName = name + " " + surname;
         this.position = position;
         this.salaryPerHour = salaryPerHour;
     }
-    public Employee(){}
 
     public String getFullName() {
         return fullName;
