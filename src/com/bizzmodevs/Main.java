@@ -70,7 +70,7 @@ public class Main {
     private static void runBonusExercises() {
 
         //1
-        System.out.println("");
+        System.out.println();
         System.out.println("1. PRIMITIVE TYPE MIN and MAX value PRINTING");
         System.out.println("byte MIN: " + Byte.MIN_VALUE);
         System.out.println("byte MAX: " + Byte.MAX_VALUE);
@@ -90,24 +90,24 @@ public class Main {
         System.out.println("char MAX: " + Character.MAX_VALUE);
 
         //2
-        System.out.println("");
+        System.out.println();
         System.out.println("2. VARIABLE OVERFLOW");
         System.out.println("MAX INT + 1 = " + (Integer.MAX_VALUE + 1));
         System.out.println("MIN INT - 1 = " + (Integer.MIN_VALUE - 1));
 
         //3
-        System.out.println("");
+        System.out.println();
         System.out.println("3. DIFFERENT SHAPES PRINTING");
-        System.out.println("");
+        System.out.println();
         System.out.println("FULL SQUARE");
         for (int x = 0; x<10; x++) {
             for (int y = 0; y<10; y++) {
                 System.out.print("*");
             }
-            System.out.println("");
+            System.out.println();
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("EMPTY SQUARE");
         for (int x = 0; x<10; x++) {
             for (int y = 0; y<10; y++) {
@@ -117,19 +117,33 @@ public class Main {
                     System.out.print(" ");
                 }
             }
-            System.out.println("");
+            System.out.println();
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("RIGHT TRIANGLE");
         for (int x = 0; x<10; x++) {
             for (int y = 0; y<x; y++) {
                 System.out.print("*");
             }
-            System.out.println("");
+            System.out.println();
         }
 
-
+        System.out.println();
+        System.out.println("PYRAMID");
+        for (int x = 0; x<10; x++) {
+            for (int y = (10-x)/2; y>=0; y--) {
+                System.out.print(" ");
+            }
+            for (int y = 0; y<=x; y++) {
+                if ((x % 2) == 0) {
+                    System.out.print("*");
+                }
+            }
+            if ((x % 2) != 0) {
+                System.out.println();
+            }
+        }
     }
 
 }
