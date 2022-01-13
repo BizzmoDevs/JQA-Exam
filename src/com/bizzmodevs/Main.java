@@ -16,10 +16,8 @@ public class Main {
         restaurantList.add(r2);
         Restaurant r3 = new Restaurant("Villa Siciliana", 12, 4, true);
         restaurantList.add(r3);
-
         //ADD NEW RESTAURANT USING METHOD
         addNewRestaurant("Super Burger", 2, 1,true);
-
         //INIT DEFAULT EMPLOYEES USING CONSTRUCTORS
         Employee e = new Employee("Karol", "Odwald", "Manager", 50);
         r1.employeesList.add(e);
@@ -27,18 +25,13 @@ public class Main {
         r1.employeesList.add(e2);
         Employee e3 = new Employee("John", "Rambo", "Killer", 90);
         r1.employeesList.add(e3);
-
-        //ADD NEW EMPLOYEE USING METHOD
-        r1.addEmployee("Michael", "Jackson", "Singer", 20);
-
-        //ADD MENU ITEMS
-        r1.menu.addMenuItem("Mexicana", "Pizza with Salami, Oregano and Tabasco Sauce", 28);
-        r1.menu.addMenuItem("Napolitana", "Pizza with Ham, Oregano and Tomato Sauce", 25);
-
         //----------------------------TEST METHODS-----------------------------------//
         System.out.println("********************");
         System.out.println("PIZZERIA GDYNIANKA:");
         r1.showBuildingProperties();
+        //ADD MENU ITEMS USING METHOD
+        r1.menu.addMenuItem("Mexicana", "Pizza with Salami, Oregano and Tabasco Sauce", 28);
+        r1.menu.addMenuItem("Napolitana", "Pizza with Ham, Oregano and Tomato Sauce", 25);
         System.out.println("MENU:");
         r1.showRestaurantMenu();
         System.out.println("EMPLOYEES:");
@@ -46,15 +39,23 @@ public class Main {
         System.out.println("********************");
         System.out.println("Changing " + r1.employeesList.get(0).getFullName() + " salary to 60... ");
         r1.employeesList.get(0).setSalaryPerHour(60);
+        System.out.println("ADDING NEW EMPLOYEE");
+        r1.addEmployee("Michael", "Jackson", "Singer", 20);
+
         System.out.println("********************");
         System.out.println("EMPLOYEES:");
         r1.showEmployeesList();
         System.out.println("********************");
         System.out.println("Adding 'Bigos' to the Menu");
         r1.menu.addMenuItem("Bigos", "Kiszona kapusta z chlebem", 15);
+
         System.out.println("********************");
-        System.out.println("MENU:");
-        r1.showRestaurantMenu();
+        System.out.println("FIND MENU ITEM BY NAME 'Bigos'" );
+        r1.menu.getPriceByName("Bigos");
+
+        System.out.println("********************");
+        System.out.println("FIND EMPLOYEE BY FULLNAME 'Karol Odwald'" );
+        r1.getEmployeeByName("Karol Odwald");
 
         //BONUS EXERCISES
         runBonusExercises();

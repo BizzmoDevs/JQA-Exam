@@ -16,27 +16,29 @@ public class Restaurant extends Building {
     }
 
     public void showEmployeesList() {
-        int employeeCounter = 0;
+        Iterator<Employee> iterator = employeesList.iterator();
+
         if (employeesList.isEmpty()) {
             System.out.println("There is no employees working in this restaurant!");
         } else {
-            for ( Employee e : employeesList) {
-                employeeCounter++;
-                System.out.print(employeeCounter + ". ");
-                e.printEmployeeData();
+            while ( iterator.hasNext()) {
+                iterator.next().printEmployeeData();
             }
         }
     }
 
-    //TODO get by name or surname or fullname?
-    public void getEmployeeByName(String employeeName) {
-        //GET
-        Employee e = employeesList.get(1);
-        if (e != null) {
-            System.out.println(e.getFullName() + " is working as " + e.getPosition());;
-        } else {
-            System.out.println("There is no such Employee");
+    public Employee getEmployeeByName(String employeeName) {
+        Iterator<Employee> iterator = employeesList.iterator();
+        while ( iterator.hasNext()) {
+            Employee e = iterator.next();
+
+            if (Objects.equals(e.getFullName(), employeeName)) {
+                System.out.println("FOUND: " + e.getFullName());
+                return e;
+            }
         }
+        System.out.println("There is no such Employee named: " + employeeName);
+        return null;
     }
 
     public void addEmployee(String firstName,String surname, String position, int salaryPerHour) {
@@ -53,7 +55,13 @@ public class Restaurant extends Building {
         }
     }
 
-    //TODO ADD MENU X
+    //TODO HOW TO ITERATE MENUs?
+    public void addNewMenu() {
+        Menu menu1 = new Menu();
+    }
 
-    //TODO GET MENU X
+    //TODO GET MENU BY?
+    public Menu getMenu () {
+        return menu;
+    }
 }
