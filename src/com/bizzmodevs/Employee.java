@@ -1,6 +1,6 @@
 package com.bizzmodevs;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 
     private String fullName, position;
     private int salaryPerHour;
@@ -32,5 +32,10 @@ public class Employee {
 
     public void printEmployeeData() {
         System.out.println(getFullName() + " is working as a " + getPosition() + " with salary per hour: " + getSalaryPerHour());
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.fullName.compareTo(o.fullName);
     }
 }

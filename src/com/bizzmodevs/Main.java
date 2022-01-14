@@ -20,10 +20,10 @@ public class Main {
         addNewRestaurant("Super Burger", 2, 1,true);
         //INIT DEFAULT EMPLOYEES USING CONSTRUCTORS
         Employee e = new Employee("Karol", "Odwald", "Manager", 50);
-        r1.employeesList.add(e);
         Employee e2 = new Employee("Maciej","Kowalski", "Chef", 20);
-        r1.employeesList.add(e2);
         Employee e3 = new Employee("John", "Rambo", "Killer", 90);
+        r1.employeesList.add(e);
+        r1.employeesList.add(e2);
         r1.employeesList.add(e3);
         //----------------------------TEST METHODS-----------------------------------//
         System.out.println("********************");
@@ -37,8 +37,8 @@ public class Main {
         System.out.println("EMPLOYEES:");
         r1.showEmployeesList();
         System.out.println("********************");
-        System.out.println("Changing " + r1.employeesList.get(0).getFullName() + " salary to 60... ");
-        r1.employeesList.get(0).setSalaryPerHour(60);
+        System.out.println("Changing " + r1.employeesList.stream().iterator().next().getFullName() + " salary to 60... ");
+        r1.employeesList.stream().iterator().next().setSalaryPerHour(60);
         System.out.println("ADDING NEW EMPLOYEE");
         r1.addEmployee("Michael", "Jackson", "Singer", 20);
 

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Restaurant extends Building {
 
-    List<Employee> employeesList = new ArrayList<>();
+    TreeSet<Employee> employeesList = new TreeSet<Employee>();
     Menu menu = new Menu();
     String restaurantName;
 
@@ -56,8 +56,8 @@ public class Restaurant extends Building {
     }
 
     //TODO HOW TO ITERATE MENUs?
-    public void addNewMenu() {
-        Menu menu1 = new Menu();
+    public void addNewMenu(Menu menu) {
+        this.menu = menu;
     }
 
     //TODO GET MENU BY?

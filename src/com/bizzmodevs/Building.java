@@ -1,15 +1,13 @@
 package com.bizzmodevs;
 
+import java.io.PrintStream;
+
 public class Building {
     int roomsNumber, bathroomNumber;
     boolean kitchen;
 
     public void showBuildingProperties() {
-        if (kitchen) {
-            System.out.println("Building has " + roomsNumber + " rooms, " + bathroomNumber + " bathroom(s)" + " and kitchen" );
-        }
-        else {
-            System.out.println("Building has " + roomsNumber + " rooms, " + bathroomNumber + " bathroom(s)" + " and no kitchen" );
-        }
+        String s = (kitchen) ? " and kitchen" : " and no kitchen";
+        System.out.println("Building has " + roomsNumber + " rooms, " + bathroomNumber + " bathroom(s)" + s);
     }
 }
